@@ -34,14 +34,12 @@ public class MotoreGioco {
 		int x, y;
 		final int DIM = griglia.getDIM();
 		
-		//STEP 1
         for (rig=0; rig<DIM; rig++) {
         	for (col=0; col<DIM; col++) {
         		griglia.setValoreCella(0, rig, col);
         	}
         }
         
-        //STEP 2-3
         for (rig=0; rig<DIM; rig++) {
         	for (col=0; col<DIM; col++) {
         		
@@ -51,7 +49,6 @@ public class MotoreGioco {
         			trovato = false;
         			nuovaCella = (int)(Math.random()*9+1); //STEP 4
         			
-        			//STEP 5
         			//ricerca sulle righe
         			i=0; while(i<col && !trovato) {
         				if (nuovaCella == griglia.getValoreCella(rig, i)) {
@@ -68,25 +65,6 @@ public class MotoreGioco {
 	    				i++;
 	    			}
         			
-	    			/*
-	    			 * TRACE CALCOLO INIZIO SOTTOMATRICE (3x3)
-	    			 * ------------------------------------------------------------
-	    			 * FORMULA: inizio = indice - (indice % 3)
-	    			 * * INDICE  |  MODULO (%) |  SOTTRAZIONE |  RISULTATO (INIZIO)
-	    			 * ----------|-------------|--------------|--------------------
-	    			 *      0    |  0 % 3 = 0  |    0 - 0     |         0
-	    			 *      1    |  1 % 3 = 1  |    1 - 1     |         0
-	    			 *      2    |  2 % 3 = 2  |    2 - 2     |         0
-	    			 * ----------|-------------|--------------|--------------------
-	    			 *      3    |  3 % 3 = 0  |    3 - 0     |         3
-	    			 *      4    |  4 % 3 = 1  |    4 - 1     |         3
-	    			 *      5    |  5 % 3 = 2  |    5 - 2     |         3
-	    			 * ----------|-------------|--------------|--------------------
-	    			 *      6    |  6 % 3 = 0  |    6 - 0     |         6
-	    			 *      7    |  7 % 3 = 1  |    7 - 1     |         6
-	    			 *      8    |  8 % 3 = 2  |    8 - 2     |         6
-	    			 * ------------------------------------------------------------
-	    			 */
 	    			inizioR = rig - (rig % 3);
 	    			inizioC = col - (col % 3);
 	    			
@@ -104,7 +82,6 @@ public class MotoreGioco {
 	    			tentativi++;
         		} while (trovato && tentativi < 50);
         		
-        		//STEP 6
         		if (tentativi < 50) {
         			griglia.setValoreCella(nuovaCella, rig, col);
         		} else {
