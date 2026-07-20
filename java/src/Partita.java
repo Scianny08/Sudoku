@@ -1,10 +1,10 @@
 
 public class Partita {
-	private LogicaPartita log;
+	private MotoreGioco motore;
 	private int errori;
 	
 	public Partita() {
-		log = new LogicaPartita();
+		motore = new MotoreGioco();
 		this.errori = 0;
 	}
 
@@ -16,21 +16,21 @@ public class Partita {
 		this.errori = errori;
 	}
 	
-	public LogicaPartita getLogica() {
-		return log;
+	public MotoreGioco getMotoreGioco() {
+		return motore;
 	}
 	
 	//true non ho ancora perso
 	//false se sono >=
 	public boolean checkErrori() {
-		return errori < log.getDifficolta().getErroriMax();
+		return errori < motore.getDifficolta().getErroriMax();
 	}
 	
 	public boolean areGriglieUguali() {
-		final int DIM = log.getGriglia().getDIM();
+		final int DIM = motore.getGriglia().getDIM();
 		for (int rig=0; rig < DIM; rig++) {
 			for (int col=0; col < DIM; col++) {
-				if (log.getGriglia().getValoreCella(rig, col) != log.getGrigliaIrrisolta().getValoreCella(rig, col)) {
+				if (motore.getGriglia().getValoreCella(rig, col) != motore.getGrigliaIrrisolta().getValoreCella(rig, col)) {
 					return false;
 				}
 			}
@@ -45,18 +45,18 @@ public class Partita {
 		}
 		
 		//se già occupata
-		if (log.getGrigliaIrrisolta().getCella(rigSel-1, colSel-1).isFixed()) { 
+		if (motore.getGrigliaIrrisolta().getCella(rigSel-1, colSel-1).isFixed()) { 
 			return -1;
 		}
 		
 		//se sbagliata
-		if (log.getGriglia().getValoreCella(rigSel-1, colSel-1) != val) {
+		if (motore.getGriglia().getValoreCella(rigSel-1, colSel-1) != val) {
 			errori++;
 			return 0;
 		}
 		
 		//tutto ok
-		log.getGrigliaIrrisolta().setValoreCella(val, rigSel-1, colSel-1);
+		motore.getGrigliaIrrisolta().setValoreCella(val, rigSel-1, colSel-1);
 		return val;
 	}
 }

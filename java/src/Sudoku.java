@@ -35,9 +35,9 @@ public class Sudoku {
         	
         	if (azione == 1) {
         		Partita partita = new Partita();
-            	LogicaPartita logica = partita.getLogica();
+            	MotoreGioco motore = partita.getMotoreGioco();
             	
-    			logica.generaSudoku();
+    			motore.generaSudoku();
     	        
     	        //impostazioni gioco
     	        int difficolta = 0;
@@ -97,9 +97,9 @@ public class Sudoku {
 	        			}
 	        		} while (erroriMax < 1 || erroriMax > 1000);
 	        		
-	        		logica.generaSudokuIrrisolto(visibilita, erroriMax);
+	        		motore.generaSudokuIrrisolto(visibilita, erroriMax);
     	        } else {
-    	        	logica.generaSudokuIrrisolto(difficolta);
+    	        	motore.generaSudokuIrrisolto(difficolta);
     	        }
     	        
     	        if (difficolta == 5) {
@@ -130,12 +130,12 @@ public class Sudoku {
     	        while(partita.checkErrori() && !uguali) {
     	        	for (i=0; i<50; i++) System.out.print("-");
     	        	
-    	        	System.out.println("\n\nErrori: "+ partita.getErrori() +"/"+ logica.getDifficolta().getErroriMax() +"\n");
+    	        	System.out.println("\n\nErrori: "+ partita.getErrori() +"/"+ motore.getDifficolta().getErroriMax() +"\n");
     	        	
-    	        	System.out.println(logica.getGrigliaIrrisolta().toString() +"\n");
+    	        	System.out.println(motore.getGrigliaIrrisolta().toString() +"\n");
     	        	
     	        	//numero di numeri
-    	        	System.out.println(logica.numMancantiToString() +"\n");
+    	        	System.out.println(motore.numMancantiToString() +"\n");
     	        	
     	        	do {
     	        		confermato = true;
@@ -229,7 +229,7 @@ public class Sudoku {
     	        	System.out.println("Hai perso.");
     	        }
     	        if (uguali) {
-    	        	System.out.println(logica.getGriglia().toString() +"\n");
+    	        	System.out.println(motore.getGriglia().toString() +"\n");
     	        	System.out.println("Hai vinto!");
     	        }
     	        

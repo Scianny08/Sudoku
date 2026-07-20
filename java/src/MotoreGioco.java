@@ -1,11 +1,11 @@
 
-public class LogicaPartita {
+public class MotoreGioco {
 	private Griglia griglia;
 	private Griglia grigliaIrrisolta;
 	private Difficolta difficolta;
 	private int[] numMancanti;
 	
-	public LogicaPartita() {
+	public MotoreGioco() {
 		griglia = new Griglia();
 		grigliaIrrisolta = new Griglia();
 		difficolta = new Difficolta(1, 0);
