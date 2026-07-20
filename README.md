@@ -2,4 +2,4 @@
 
 Un'implementazione del classico gioco **Sudoku**
 
-WORK IN PROGRESS
+GUI in python work in progress
