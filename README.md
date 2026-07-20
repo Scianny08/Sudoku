@@ -1,4 +1,4 @@
-# 🎮 Sudoku - Java
+# 🎮 Sudoku
 
 Un'implementazione del classico gioco **Sudoku** sviluppata in Java, con interfaccia CUI (Command User Interface).
 
