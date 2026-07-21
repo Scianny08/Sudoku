@@ -1,3 +1,4 @@
 *.class
 .venv/
 bin/
+__pycache__/

@@ -1,19 +1,19 @@
 
 public class Difficolta {
-	private double visibilita;
+	private double celleCoperte; //valore normalizzato (0.0 - 1.0)
 	private int erroriMax;
 	
-	public Difficolta(double visibilita, int erroriMax) {
-		this.visibilita = visibilita;
+	public Difficolta(double celleCoperte, int erroriMax) {
+		this.celleCoperte = celleCoperte;
 		this.erroriMax = erroriMax;
 	}
 	
-	public double getVisibilita() {
-		return visibilita;
+	public double getCelleCoperte() {
+		return celleCoperte;
 	}
 	
-	public void setVisibilita(double visibilita) {
-		this.visibilita = visibilita;
+	public void setCelleCoperte(double celleCoperte) {
+		this.celleCoperte = celleCoperte;
 	}
 	
 	public int getErroriMax() {

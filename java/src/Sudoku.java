@@ -45,10 +45,10 @@ public class Sudoku {
     	        int erroriMax;
     			
     	        System.out.println("Scegli una difficoltà (1-5): ");
-    	        System.out.println("1 - Facile\t\t(60% completato)");
-    	        System.out.println("2 - Media\t\t(50% completato)");
-    	        System.out.println("3 - Difficile\t\t(30% completato)");
-    	        System.out.println("4 - Impossibile\t\t(20% completato)");
+    	        System.out.println("1 - Facile");
+    	        System.out.println("2 - Media");
+    	        System.out.println("3 - Difficile");
+    	        System.out.println("4 - Impossibile");
     	        System.out.println("5 - Personalizzata\n");
     	        
     	        do {
@@ -126,7 +126,7 @@ public class Sudoku {
     	        
 				Tempo tempo = new Tempo();
 				tempo.inizio();
-
+				
     	        while(partita.checkErrori() && !uguali) {
     	        	for (i=0; i<50; i++) System.out.print("-");
     	        	
@@ -228,6 +228,7 @@ public class Sudoku {
     	        if (!partita.checkErrori()) {
     	        	System.out.println("Hai perso.");
     	        }
+				
     	        if (uguali) {
     	        	System.out.println(motore.getGriglia().toString() +"\n");
     	        	System.out.println("Hai vinto!");

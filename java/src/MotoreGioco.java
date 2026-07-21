@@ -4,11 +4,10 @@ public class MotoreGioco {
 	private Griglia grigliaIrrisolta;
 	private Difficolta difficolta;
 	private int[] numMancanti;
-	
+
 	public MotoreGioco() {
 		griglia = new Griglia();
 		grigliaIrrisolta = new Griglia();
-		difficolta = new Difficolta(1, 0);
 		numMancanti = new int[9];
 	}
 
@@ -103,22 +102,22 @@ public class MotoreGioco {
 	public void generaSudokuIrrisolto(int livelloDiff) {
 		switch (livelloDiff) {
     	case 1:
-    		difficolta.setVisibilita(0.4);
+    		difficolta.setCelleCoperte(0.4);
     		difficolta.setErroriMax(5);
     		break;
     	
     	case 2:
-    		difficolta.setVisibilita(0.5);
+    		difficolta.setCelleCoperte(0.5);
     		difficolta.setErroriMax(3);
     		break;
     	
     	case 3:
-    		difficolta.setVisibilita(0.7);
+    		difficolta.setCelleCoperte(0.7);
     		difficolta.setErroriMax(2);
     		break;
     	
     	case 4:
-    		difficolta.setVisibilita(0.8);
+    		difficolta.setCelleCoperte(0.8);
     		difficolta.setErroriMax(1);
     		break;
 		
@@ -129,9 +128,9 @@ public class MotoreGioco {
 		irrisolutore();
 	}
 	
-	public void generaSudokuIrrisolto(double visibilita, int erroriMax) {
-		visibilita = visibilita / 100;
-		difficolta = new Difficolta(visibilita, erroriMax);
+	public void generaSudokuIrrisolto(double percentualeCelleCoperte, int erroriMax) {
+		percentualeCelleCoperte = percentualeCelleCoperte / 100;
+		difficolta = new Difficolta(percentualeCelleCoperte, erroriMax);
 		irrisolutore();
 	}
 	
@@ -147,7 +146,7 @@ public class MotoreGioco {
         	}
         }
         
-        int celleCoperte = (int)(DIM*DIM*difficolta.getVisibilita());
+        int celleCoperte = (int)(DIM*DIM*difficolta.getCelleCoperte());
         
         for(i=0; i<celleCoperte; i++) {
 			do {

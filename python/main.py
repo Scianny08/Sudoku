@@ -1,5 +1,6 @@
 import os
 import jpype
+import gui
 
 # Cartella dove si trova main.py (cioè "python/")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -8,3 +9,5 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CLASSPATH = os.path.join(BASE_DIR, "..", "java", "bin")
 
 jpype.startJVM(classpath=[CLASSPATH])
+
+gui.avvia_gui()
