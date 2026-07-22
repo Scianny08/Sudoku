@@ -9,6 +9,7 @@ public class MotoreGioco {
 		griglia = new Griglia();
 		grigliaIrrisolta = new Griglia();
 		numMancanti = new int[9];
+		difficolta = new Difficolta(0, 0);
 	}
 
 	public Griglia getGriglia() {
